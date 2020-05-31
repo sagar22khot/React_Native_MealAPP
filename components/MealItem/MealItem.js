@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     paddingHorizontal: 12,
     textAlign: "center",
+    color: "white",
   },
 });
 
