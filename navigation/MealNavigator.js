@@ -11,6 +11,7 @@ import FavoritesScreen from "../screens/FavoritesScreen/FavoritesScreen";
 import FiltersScreen from "../screens/FiltersScreen/FiltersScreen";
 import MealDetailScreen from "../screens/MealDetailScreen/MealDetailScreen";
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
+import { createDrawerNavigator } from "react-navigation-drawer";
 
 const defaultStackNavOptions = {
   headerStyle: {
@@ -99,4 +100,13 @@ const MealsFavTabNavigator =
         },
       });
 
-export default createAppContainer(MealsFavTabNavigator);
+const FiltersNavigator = createStackNavigator({
+  Filters: FiltersScreen,
+});
+
+const MainNavigator = createDrawerNavigator({
+  MealsFavs: MealsFavTabNavigator,
+  Filters: FiltersNavigator,
+});
+
+export default createAppContainer(MainNavigator);

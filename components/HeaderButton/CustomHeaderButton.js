@@ -6,7 +6,6 @@ import { StyleSheet, Platform } from "react-native";
 import Colors from "../../constants/Colors";
 
 const CustomHeaderButton = (props) => {
-  console.log("lol");
   return (
     <HeaderButton
       {...props}
