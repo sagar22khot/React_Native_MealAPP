@@ -1,6 +1,6 @@
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
-import { Platform } from "react-native";
+import { Platform, Text } from "react-native";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
@@ -16,6 +16,12 @@ import { createDrawerNavigator } from "react-navigation-drawer";
 const defaultStackNavOptions = {
   headerStyle: {
     backgroundColor: Platform.OS === "android" ? Colors.primaryColor : null,
+  },
+  headerTitleStyle: {
+    fontFamily: "AntonReg",
+  },
+  headerBackTitleStyle: {
+    fontFamily: "BebasNeue",
   },
   headerTintColor: Platform.OS === "android" ? "white" : Colors.primaryColor,
 };
@@ -71,6 +77,12 @@ const tabScreenConfig = {
         );
       },
       tabBarColor: Colors.primaryColor,
+      tabBarLabel:
+        Platform.OS === "android" ? (
+          <Text style={{ fontFamily: "BebasNeue" }}>Meals</Text>
+        ) : (
+          "Meals"
+        ),
     },
   },
   Favorites: {
@@ -81,6 +93,12 @@ const tabScreenConfig = {
         return <Ionicons name="ios-star" size={25} color={tabInfo.tintColor} />;
       },
       tabBarColor: Colors.accentColor,
+      tabBarLabel:
+        Platform.OS === "android" ? (
+          <Text style={{ fontFamily: "BebasNeue" }}>Favorites</Text>
+        ) : (
+          "Favorites"
+        ),
     },
   },
 };
@@ -96,6 +114,9 @@ const MealsFavTabNavigator =
       })
     : createBottomTabNavigator(tabScreenConfig, {
         tabBarOptions: {
+          labelStyle: {
+            fontFamily: "BebasNeue",
+          },
           activeTintColor: Colors.accentColor,
         },
       });
