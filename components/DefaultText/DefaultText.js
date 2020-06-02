@@ -8,6 +8,7 @@ const DefaultText = (props) => {
 const styles = StyleSheet.create({
   text: {
     fontFamily: "BebasNeue",
+    fontSize: 18,
   },
 });
 
